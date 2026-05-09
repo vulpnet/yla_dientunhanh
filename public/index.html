@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>YLA – Điện Tử Nhanh | Phụ Kiện & Gadget Chính Hãng</title>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ── TOKENS ── */
+:root {
+  --red:      #E8192C;
+  --red-soft: #FFF0F1;
+  --red-mid:  #FFD6D9;
+  --orange:   #FF6B35;
+  --bg:       #F7F7F8;
+  --white:    #FFFFFF;
+  --ink:      #111111;
+  --ink2:     #444444;
+  --ink3:     #888888;
+  --border:   #E8E8EC;
+  --card-sh:  0 2px 12px rgba(0,0,0,0.07);
+  --card-sh2: 0 8px 32px rgba(0,0,0,0.12);
+  --radius:   14px;
+  --f:        'Be Vietnam Pro', sans-serif;
+}
+
+/* ── RESET ── */
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; font-size:16px; }
+body { font-family:var(--f); background:var(--bg); color:var(--ink); -webkit-font-smoothing:antialiased; }
+a { text-decoration:none; color:inherit; }
+img { display:block; max-width:100%; }
+
+/* ── TOPBAR ── */
+.topbar {
+  background:var(--red);
+  padding:8px 0;
+  text-align:center;
+  font-size:13px;
+  font-weight:600;
+  color:#fff;
+  letter-spacing:0.3px;
+}
+.topbar span { opacity:.8; }
+.topbar b { opacity:1; }
+
+/* ── NAV ── */
+nav {
+  position:sticky; top:0; z-index:100;
+  background:var(--white);
+  border-bottom:1px solid var(--border);
+  box-shadow:0 1px 8px rgba(0,0,0,0.06);
+}
+.nav-inner {
+  max-width:1200px; margin:0 auto;
+  display:flex; align-items:center;
+  padding:0 24px; height:64px; gap:24px;
+}
+.nav-logo {
+  display:flex; align-items:center; gap:10px; flex-shrink:0;
+}
+.logo-mark {
+  width:38px; height:38px; border-radius:10px;
+  background:var(--red);
+  display:flex; align-items:center; justify-content:center;
+  font-size:16px; font-weight:900; color:#fff; letter-spacing:-1px;
+}
+.logo-text { line-height:1.2; }
+.logo-text strong { display:block; font-size:15px; font-weight:800; color:var(--ink); }
+.logo-text span   { display:block; font-size:11px; font-weight:500; color:var(--ink3); }
+
+.nav-search {
+  flex:1; max-width:480px;
+  position:relative;
+}
+.nav-search input {
+  width:100%; height:40px;
+  border:1.5px solid var(--border);
+  border-radius:10px;
+  padding:0 44px 0 16px;
+  font-family:var(--f); font-size:14px; color:var(--ink);
+  background:var(--bg);
+  outline:none; transition:border .2s;
+}
+.nav-search input:focus { border-color:var(--red); background:#fff; }
+.nav-search input::placeholder { color:var(--ink3); }
+.nav-search button {
+  position:absolute; right:0; top:0; width:40px; height:40px;
+  border:none; background:transparent; cursor:pointer;
+  color:var(--ink3); font-size:16px;
+  display:flex; align-items:center; justify-content:center;
+}
+.nav-search button:hover { color:var(--red); }
+
+.nav-actions { display:flex; align-items:center; gap:8px; margin-left:auto; }
+.nav-phone-btn {
+  display:flex; align-items:center; gap:6px;
+  padding:8px 16px; border-radius:10px;
+  border:1.5px solid var(--border);
+  font-size:13px; font-weight:700; color:var(--ink2);
+  transition:all .2s;
+}
+.nav-phone-btn:hover { border-color:var(--red); color:var(--red); }
+.nav-cta {
+  display:flex; align-items:center; gap:6px;
+  padding:9px 20px; border-radius:10px;
+  background:var(--red); color:#fff;
+  font-size:14px; font-weight:700;
+  transition:all .2s; white-space:nowrap;
+}
+.nav-cta:hover { background:#c8101f; transform:translateY(-1px); box-shadow:0 4px 16px rgba(232,25,44,0.3); }
+
+/* ── HERO ── */
+.hero {
+  background:var(--white);
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
+}
+.hero-inner {
+  max-width:1200px; margin:0 auto;
+  padding:48px 24px 40px;
+  display:grid; grid-template-columns:1fr 420px;
+  align-items:center; gap:48px;
+}
+.hero-badge {
+  display:inline-flex; align-items:center; gap:6px;
+  background:var(--red-soft); color:var(--red);
+  padding:5px 12px; border-radius:20px;
+  font-size:12px; font-weight:700; letter-spacing:0.5px;
+  margin-bottom:16px;
+}
+.hero-badge-dot { width:6px; height:6px; border-radius:50%; background:var(--red); animation:blink 1.5s infinite; }
+h1.hero-title {
+  font-size:42px; font-weight:900; line-height:1.1;
+  letter-spacing:-1px; color:var(--ink);
+  margin-bottom:14px;
+}
+h1.hero-title em { color:var(--red); font-style:normal; }
+.hero-desc {
+  font-size:16px; font-weight:400; color:var(--ink2);
+  line-height:1.7; margin-bottom:28px; max-width:460px;
+}
+.hero-btns { display:flex; gap:12px; flex-wrap:wrap; margin-bottom:32px; }
+.btn-red {
+  display:inline-flex; align-items:center; gap:8px;
+  background:var(--red); color:#fff;
+  padding:13px 28px; border-radius:10px;
+  font-size:15px; font-weight:700;
+  transition:all .2s;
+  box-shadow:0 4px 16px rgba(232,25,44,0.25);
+}
+.btn-red:hover { background:#c8101f; transform:translateY(-2px); box-shadow:0 6px 24px rgba(232,25,44,0.35); }
+.btn-outline {
+  display:inline-flex; align-items:center; gap:8px;
+  border:1.5px solid var(--border); color:var(--ink2);
+  padding:13px 24px; border-radius:10px;
+  font-size:15px; font-weight:600;
+  transition:all .2s;
+}
+.btn-outline:hover { border-color:var(--red); color:var(--red); background:var(--red-soft); }
+
+.hero-trust { display:flex; align-items:center; gap:20px; flex-wrap:wrap; }
+.trust-item { display:flex; align-items:center; gap:6px; font-size:13px; font-weight:600; color:var(--ink2); }
+.trust-item .ico { font-size:16px; }
+
+/* Hero visual */
+.hero-visual {
+  background:linear-gradient(135deg,#FFF0F1,#FFF8F0);
+  border-radius:20px; padding:32px;
+  display:flex; flex-direction:column; gap:12px;
+  border:1px solid var(--red-mid);
+}
+.hero-visual-title { font-size:13px; font-weight:700; color:var(--red); letter-spacing:1px; text-transform:uppercase; margin-bottom:4px; }
+.mini-card {
+  background:#fff; border-radius:12px;
+  padding:14px 16px;
+  display:flex; align-items:center; gap:14px;
+  box-shadow:var(--card-sh);
+  border:1px solid var(--border);
+  transition:transform .2s;
+  cursor:pointer;
+}
+.mini-card:hover { transform:translateX(4px); }
+.mini-card-icon { font-size:32px; width:48px; text-align:center; flex-shrink:0; }
+.mini-card-info { flex:1; min-width:0; }
+.mini-card-name { font-size:14px; font-weight:700; color:var(--ink); margin-bottom:2px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.mini-card-price { font-size:15px; font-weight:800; color:var(--red); }
+.mini-card-old { font-size:11px; color:var(--ink3); text-decoration:line-through; }
+.mini-card-btn {
+  background:var(--red); color:#fff;
+  font-size:12px; font-weight:700;
+  padding:7px 14px; border-radius:8px; flex-shrink:0;
+  white-space:nowrap; transition:background .2s;
+}
+.mini-card:hover .mini-card-btn { background:#c8101f; }
+
+/* ── TRUST BANNER ── */
+.trust-banner {
+  background:var(--white);
+  border-bottom:1px solid var(--border);
+}
+.trust-inner {
+  max-width:1200px; margin:0 auto;
+  display:grid; grid-template-columns:repeat(4,1fr);
+}
+.trust-block {
+  padding:20px 24px;
+  display:flex; align-items:center; gap:14px;
+  border-right:1px solid var(--border);
+}
+.trust-block:last-child { border-right:none; }
+.trust-ico { font-size:28px; flex-shrink:0; }
+.trust-info strong { display:block; font-size:14px; font-weight:800; color:var(--ink); }
+.trust-info span   { font-size:12px; color:var(--ink3); font-weight:500; }
+
+/* ── SECTION COMMON ── */
+.section { max-width:1200px; margin:0 auto; padding:48px 24px; }
+.section-head { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:24px; flex-wrap:wrap; gap:12px; }
+.section-head-left {}
+.sec-eyebrow { font-size:12px; font-weight:700; color:var(--red); letter-spacing:1.5px; text-transform:uppercase; margin-bottom:6px; }
+h2.sec-title { font-size:26px; font-weight:800; color:var(--ink); letter-spacing:-0.5px; }
+.sec-link { font-size:13px; font-weight:700; color:var(--red); display:flex; align-items:center; gap:4px; white-space:nowrap; }
+.sec-link:hover { text-decoration:underline; }
+
+/* ── DEAL GRID ── */
+.deal-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+}
+.deal-card {
+  background:var(--white);
+  border:1px solid var(--border);
+  border-radius:var(--radius);
+  overflow:hidden;
+  transition:all .25s;
+  display:flex; flex-direction:column;
+}
+.deal-card:hover {
+  border-color:#ffc0c6;
+  box-shadow:var(--card-sh2);
+  transform:translateY(-4px);
+}
+.dc-thumb {
+  background:var(--bg);
+  height:160px;
+  display:flex; align-items:center; justify-content:center;
+  font-size:72px;
+  position:relative;
+}
+.dc-badges { position:absolute; top:10px; left:10px; display:flex; gap:6px; }
+.badge { font-size:11px; font-weight:700; padding:3px 9px; border-radius:6px; }
+.b-hot  { background:var(--red); color:#fff; }
+.b-new  { background:#16a34a; color:#fff; }
+.b-sale { background:#f59e0b; color:#fff; }
+.b-free { background:#0ea5e9; color:#fff; }
+.dc-body { padding:14px; flex:1; display:flex; flex-direction:column; }
+.dc-cat  { font-size:11px; font-weight:700; color:var(--ink3); letter-spacing:1px; text-transform:uppercase; margin-bottom:5px; }
+.dc-name { font-size:15px; font-weight:700; color:var(--ink); margin-bottom:5px; line-height:1.35; }
+.dc-desc { font-size:12px; color:var(--ink3); line-height:1.6; flex:1; margin-bottom:14px; }
+.dc-foot { display:flex; align-items:center; justify-content:space-between; gap:8px; }
+.dc-prices {}
+.dc-price { font-size:18px; font-weight:800; color:var(--red); }
+.dc-old   { font-size:11px; color:var(--ink3); text-decoration:line-through; }
+.dc-btn {
+  background:var(--red); color:#fff;
+  font-size:12px; font-weight:700;
+  padding:9px 14px; border-radius:8px;
+  white-space:nowrap; flex-shrink:0;
+  transition:all .2s;
+}
+.deal-card:hover .dc-btn { background:#c8101f; }
+
+/* FEATURED CARD */
+.deal-card.featured {
+  grid-column:span 2;
+  flex-direction:row;
+}
+.deal-card.featured .dc-thumb { width:200px; height:auto; flex-shrink:0; font-size:88px; }
+.deal-card.featured .dc-name { font-size:18px; }
+.deal-card.featured .dc-price { font-size:22px; }
+.deal-card.featured .dc-desc { display:block; }
+
+/* ── CATEGORIES ── */
+.cat-grid {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:14px;
+}
+.cat-card {
+  background:var(--white); border:1px solid var(--border);
+  border-radius:var(--radius); padding:24px 20px; text-align:center;
+  transition:all .22s; cursor:pointer; display:block;
+}
+.cat-card:hover { border-color:#ffc0c6; box-shadow:var(--card-sh2); transform:translateY(-3px); background:var(--red-soft); }
+.cat-icon { font-size:40px; margin-bottom:10px; }
+.cat-name { font-size:15px; font-weight:700; color:var(--ink); margin-bottom:4px; }
+.cat-sub  { font-size:12px; color:var(--ink3); }
+.cat-card:hover .cat-name { color:var(--red); }
+
+/* ── WHY YLA ── */
+.why-sect { background:var(--white); border-top:1px solid var(--border); border-bottom:1px solid var(--border); }
+.why-grid { max-width:1200px; margin:0 auto; padding:0 24px; display:grid; grid-template-columns:repeat(4,1fr); }
+.why-card { padding:32px 24px; border-right:1px solid var(--border); }
+.why-card:last-child { border-right:none; }
+.why-card:hover .why-ico-wrap { background:var(--red); }
+.why-card:hover .why-ico-wrap span { filter:brightness(10); }
+.why-ico-wrap {
+  width:48px; height:48px; border-radius:12px;
+  background:var(--red-soft);
+  display:flex; align-items:center; justify-content:center;
+  font-size:22px; margin-bottom:14px;
+  transition:background .2s;
+}
+.why-card h3 { font-size:15px; font-weight:800; color:var(--ink); margin-bottom:6px; }
+.why-card p  { font-size:13px; color:var(--ink3); line-height:1.65; }
+
+/* ── SHOPEE CTA ── */
+.shopee-cta {
+  background:linear-gradient(135deg, #E8192C 0%, #FF6B35 100%);
+  border-radius:20px; margin:0 24px;
+  padding:56px 48px;
+  display:grid; grid-template-columns:1fr auto;
+  align-items:center; gap:40px;
+  overflow:hidden; position:relative;
+}
+.shopee-cta::before {
+  content:''; position:absolute; right:-60px; top:-60px;
+  width:300px; height:300px; border-radius:50%;
+  background:rgba(255,255,255,0.06);
+}
+.shopee-cta::after {
+  content:''; position:absolute; right:60px; bottom:-80px;
+  width:200px; height:200px; border-radius:50%;
+  background:rgba(255,255,255,0.04);
+}
+.cta-eyebrow { font-size:12px; font-weight:700; color:rgba(255,255,255,0.7); letter-spacing:2px; text-transform:uppercase; margin-bottom:12px; }
+.cta-title { font-size:34px; font-weight:900; color:#fff; letter-spacing:-0.5px; line-height:1.15; margin-bottom:10px; }
+.cta-desc { font-size:15px; color:rgba(255,255,255,0.8); line-height:1.6; }
+.cta-right { display:flex; flex-direction:column; gap:12px; align-items:flex-end; position:relative; z-index:1; }
+.cta-big-btn {
+  display:inline-flex; align-items:center; gap:10px;
+  background:#fff; color:var(--red);
+  padding:16px 36px; border-radius:12px;
+  font-size:16px; font-weight:800;
+  box-shadow:0 8px 32px rgba(0,0,0,0.2);
+  transition:all .2s; white-space:nowrap;
+}
+.cta-big-btn:hover { transform:translateY(-2px) scale(1.02); box-shadow:0 12px 40px rgba(0,0,0,0.25); }
+.cta-note { font-size:12px; color:rgba(255,255,255,0.65); text-align:right; }
+
+/* ── TICKER ── */
+.ticker { overflow:hidden; background:#fff; border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:11px 0; }
+.ticker-track { display:flex; gap:0; white-space:nowrap; animation:tick 30s linear infinite; }
+.tick-item { padding:0 40px; font-size:13px; font-weight:600; color:var(--ink3); display:flex; align-items:center; gap:8px; }
+.tick-item b { color:var(--red); }
+.tick-dot { width:4px; height:4px; border-radius:50%; background:var(--red-mid); flex-shrink:0; }
+
+/* ── CONTACT ── */
+.contact-sect {
+  max-width:1200px; margin:0 auto; padding:48px 24px;
+  display:grid; grid-template-columns:1fr 1fr; gap:24px;
+}
+.contact-card {
+  background:var(--white); border:1px solid var(--border);
+  border-radius:var(--radius); padding:32px;
+  display:flex; align-items:center; gap:20px;
+  transition:all .2s;
+}
+.contact-card:hover { border-color:#ffc0c6; box-shadow:var(--card-sh2); }
+.contact-icon { font-size:36px; width:64px; height:64px; border-radius:14px; background:var(--red-soft); display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+.contact-info strong { display:block; font-size:18px; font-weight:800; color:var(--ink); margin-bottom:4px; }
+.contact-info span   { display:block; font-size:13px; color:var(--ink3); margin-bottom:14px; }
+.contact-btn {
+  display:inline-flex; align-items:center; gap:6px;
+  background:var(--red); color:#fff;
+  padding:10px 22px; border-radius:9px;
+  font-size:14px; font-weight:700; transition:all .2s;
+}
+.contact-btn:hover { background:#c8101f; transform:translateY(-1px); }
+
+/* ── FOOTER ── */
+footer {
+  background:var(--ink); color:#fff;
+  padding:20px 24px;
+}
+.footer-inner { max-width:1200px; margin:0 auto; }
+.footer-bottom { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:12px; }
+.footer-logo-mark { width:32px; height:32px; border-radius:8px; background:var(--red); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:900; color:#fff; flex-shrink:0; }
+.footer-logo-text { font-size:15px; font-weight:800; color:#fff; }
+.footer-copy { font-size:12px; color:#666; }
+.footer-legal { display:flex; gap:20px; }
+.footer-legal a { font-size:12px; color:#888; transition:color .2s; }
+.footer-legal a:hover { color:#fff; }
+
+/* ── ANIMATIONS ── */
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+@keyframes tick { from{transform:translateX(0);} to{transform:translateX(-50%);} }
+.rv { opacity:0; transform:translateY(20px); transition:opacity .6s ease, transform .6s ease; }
+.rv.on { opacity:1; transform:none; }
+.d1{transition-delay:.07s;} .d2{transition-delay:.14s;} .d3{transition-delay:.21s;} .d4{transition-delay:.28s;}
+
+/* ── MOBILE ── */
+@media(max-width:900px){
+  .nav-search { display:none; }
+  .hero-inner { grid-template-columns:1fr; }
+  .hero-visual { display:none; }
+  h1.hero-title { font-size:32px; }
+  .trust-inner { grid-template-columns:1fr 1fr; }
+  .trust-block { border-right:none; border-bottom:1px solid var(--border); }
+  .trust-block:nth-child(2n) { border-right:none; }
+  .deal-grid { grid-template-columns:1fr 1fr; }
+  .deal-card.featured { grid-column:span 2; flex-direction:column; }
+  .deal-card.featured .dc-thumb { width:100%; height:180px; }
+  .cat-grid { grid-template-columns:repeat(2,1fr); }
+  .why-grid { grid-template-columns:1fr 1fr; }
+  .why-card { border-right:none; border-bottom:1px solid var(--border); }
+  .shopee-cta { grid-template-columns:1fr; margin:0 16px; padding:36px 28px; }
+  .cta-right { align-items:flex-start; }
+  .contact-sect { grid-template-columns:1fr; }
+  .footer-top { flex-direction:column; gap:28px; }
+}
+@media(max-width:600px){
+  .nav-inner { padding:0 16px; }
+  .deal-grid { grid-template-columns:1fr; }
+  .deal-card.featured { grid-column:span 1; }
+  .cat-grid { grid-template-columns:repeat(2,1fr); }
+  .why-grid { grid-template-columns:1fr; }
+  .trust-inner { grid-template-columns:1fr; }
+  h1.hero-title { font-size:28px; }
+  .cta-title { font-size:26px; }
+  .topbar { font-size:12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<div class="topbar">
+  <b>🔥 FREESHIP toàn quốc</b> <span>&nbsp;·&nbsp; Đổi trả 7 ngày &nbsp;·&nbsp; Hàng chính hãng 100%</span>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#">
+      <div class="logo-mark">YLA</div>
+      <div class="logo-text">
+        <strong>Điện Tử Nhanh</strong>
+        <span>Phụ kiện & Gadget chính hãng</span>
+      </div>
+    </a>
+
+    <div class="nav-search">
+      <input type="text" placeholder="Tìm tai nghe, sạc nhanh, smartwatch...">
+      <button>🔍</button>
+    </div>
+
+    <div class="nav-actions">
+      <a class="nav-cta" href="https://shopee.vn" target="_blank">
+        🛍️ Mua trên Shopee
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-left rv">
+      <div class="hero-badge"><span class="hero-badge-dot"></span> Deal công nghệ hôm nay</div>
+      <h1 class="hero-title">Phụ kiện xịn,<br>giá tốt,<br><em>giao siêu nhanh.</em></h1>
+      <p class="hero-desc">YLA chọn lọc kỹ từng sản phẩm — chỉ bán hàng chính hãng có bảo hành, giá cạnh tranh nhất thị trường. Mua trực tiếp trên Shopee, an toàn & freeship.</p>
+      <div class="hero-btns">
+        <a class="btn-red" href="https://shopee.vn" target="_blank">🛍️ Xem deal Shopee</a>
+        <a class="btn-outline" href="https://m.me/" target="_blank">💬 Nhắn tin tư vấn</a>
+      </div>
+      <div class="hero-trust">
+        <div class="trust-item"><span class="ico">✅</span> Chính hãng 100%</div>
+        <div class="trust-item"><span class="ico">🚚</span> Freeship toàn quốc</div>
+        <div class="trust-item"><span class="ico">↩️</span> Đổi trả 7 ngày</div>
+      </div>
+    </div>
+
+    <div class="hero-visual rv d2">
+      <div class="hero-visual-title">🔥 Deal hôm nay</div>
+      <a class="mini-card" href="https://shopee.vn" target="_blank">
+        <div class="mini-card-icon">🎧</div>
+        <div class="mini-card-info">
+          <div class="mini-card-name">AirPods Pro 2nd Gen</div>
+          <div class="mini-card-price">1.290.000đ <span class="mini-card-old">1.720.000đ</span></div>
+        </div>
+        <div class="mini-card-btn">Mua ↗</div>
+      </a>
+      <a class="mini-card" href="https://shopee.vn" target="_blank">
+        <div class="mini-card-icon">⌚</div>
+        <div class="mini-card-info">
+          <div class="mini-card-name">Smartwatch S9 Ultra</div>
+          <div class="mini-card-price">890.000đ <span class="mini-card-old">1.200.000đ</span></div>
+        </div>
+        <div class="mini-card-btn">Mua ↗</div>
+      </a>
+      <a class="mini-card" href="https://shopee.vn" target="_blank">
+        <div class="mini-card-icon">🔋</div>
+        <div class="mini-card-info">
+          <div class="mini-card-name">Sạc GaN 65W 3 cổng</div>
+          <div class="mini-card-price">350.000đ <span class="mini-card-old">499.000đ</span></div>
+        </div>
+        <div class="mini-card-btn">Mua ↗</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST BANNER -->
+<div class="trust-banner">
+  <div class="trust-inner">
+    <div class="trust-block rv">
+      <span class="trust-ico">✅</span>
+      <div class="trust-info"><strong>Chính hãng 100%</strong><span>Tem, bảo hành đầy đủ</span></div>
+    </div>
+    <div class="trust-block rv d1">
+      <span class="trust-ico">🚚</span>
+      <div class="trust-info"><strong>Giao nhanh toàn quốc</strong><span>1–2 ngày làm việc</span></div>
+    </div>
+    <div class="trust-block rv d2">
+      <span class="trust-ico">💸</span>
+      <div class="trust-info"><strong>Giá tốt nhất</strong><span>Cam kết hoàn tiền nếu rẻ hơn</span></div>
+    </div>
+    <div class="trust-block rv d3">
+      <span class="trust-ico">↩️</span>
+      <div class="trust-info"><strong>Đổi trả 7 ngày</strong><span>Không cần lý do</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-track">
+    <span class="tick-item"><b>FREESHIP</b> mọi đơn <span class="tick-dot"></span></span>
+    <span class="tick-item"><b>DEAL HOT</b> mỗi ngày <span class="tick-dot"></span></span>
+    <span class="tick-item">Chính hãng <b>100%</b> <span class="tick-dot"></span></span>
+    <span class="tick-item">Giao nhanh <b>toàn quốc</b> <span class="tick-dot"></span></span>
+    <span class="tick-item">Đổi trả <b>7 ngày</b> <span class="tick-dot"></span></span>
+    <span class="tick-item">Tư vấn <b>miễn phí</b> 7/7 <span class="tick-dot"></span></span>
+    <span class="tick-item"><b>FREESHIP</b> mọi đơn <span class="tick-dot"></span></span>
+    <span class="tick-item"><b>DEAL HOT</b> mỗi ngày <span class="tick-dot"></span></span>
+    <span class="tick-item">Chính hãng <b>100%</b> <span class="tick-dot"></span></span>
+    <span class="tick-item">Giao nhanh <b>toàn quốc</b> <span class="tick-dot"></span></span>
+    <span class="tick-item">Đổi trả <b>7 ngày</b> <span class="tick-dot"></span></span>
+    <span class="tick-item">Tư vấn <b>miễn phí</b> 7/7 <span class="tick-dot"></span></span>
+  </div>
+</div>
+
+<!-- DEALS -->
+<div class="section">
+  <div class="section-head rv">
+    <div class="section-head-left">
+      <div class="sec-eyebrow">Sản phẩm nổi bật</div>
+      <h2 class="sec-title">Deal hot hôm nay 🔥</h2>
+    </div>
+    <a class="sec-link" href="https://shopee.vn" target="_blank">Xem tất cả trên Shopee →</a>
+  </div>
+
+  <div class="deal-grid">
+    <a class="deal-card featured rv" href="https://shopee.vn" target="_blank">
+      <div class="dc-thumb">
+        🎧
+        <div class="dc-badges"><span class="badge b-hot">HOT</span><span class="badge b-sale">-25%</span></div>
+      </div>
+      <div class="dc-body">
+        <div class="dc-cat">Tai nghe</div>
+        <div class="dc-name">AirPods Pro 2nd Gen</div>
+        <div class="dc-desc">Chống ồn chủ động, âm thanh không gian, chip H2. Kết nối liền mạch với iPhone, iPad, Mac.</div>
+        <div class="dc-foot">
+          <div class="dc-prices">
+            <div class="dc-price">1.290.000đ</div>
+            <div class="dc-old">1.720.000đ</div>
+          </div>
+          <div class="dc-btn">Mua Shopee ↗</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="deal-card rv d1" href="https://shopee.vn" target="_blank">
+      <div class="dc-thumb">⌚<div class="dc-badges"><span class="badge b-new">NEW</span></div></div>
+      <div class="dc-body">
+        <div class="dc-cat">Smartwatch</div>
+        <div class="dc-name">Smartwatch S9 Ultra</div>
+        <div class="dc-desc">AMOLED, theo dõi sức khoẻ 24/7, pin 7 ngày.</div>
+        <div class="dc-foot">
+          <div class="dc-prices"><div class="dc-price">890.000đ</div><div class="dc-old">1.200.000đ</div></div>
+          <div class="dc-btn">Mua ↗</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="deal-card rv d2" href="https://shopee.vn" target="_blank">
+      <div class="dc-thumb">🔋<div class="dc-badges"><span class="badge b-sale">-30%</span></div></div>
+      <div class="dc-body">
+        <div class="dc-cat">Sạc nhanh</div>
+        <div class="dc-name">Sạc GaN 65W 3 cổng</div>
+        <div class="dc-desc">Nhỏ gọn, sạc 3 thiết bị cùng lúc, an toàn.</div>
+        <div class="dc-foot">
+          <div class="dc-prices"><div class="dc-price">350.000đ</div><div class="dc-old">499.000đ</div></div>
+          <div class="dc-btn">Mua ↗</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="deal-card rv d1" href="https://shopee.vn" target="_blank">
+      <div class="dc-thumb">📱<div class="dc-badges"><span class="badge b-free">FREESHIP</span></div></div>
+      <div class="dc-body">
+        <div class="dc-cat">Phụ kiện điện thoại</div>
+        <div class="dc-name">Ốp lưng chống sốc cao cấp</div>
+        <div class="dc-desc">Chống sốc 4 góc, nhiều màu, phù hợp nhiều dòng máy.</div>
+        <div class="dc-foot">
+          <div class="dc-prices"><div class="dc-price">89.000đ</div><div class="dc-old">150.000đ</div></div>
+          <div class="dc-btn">Mua ↗</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="deal-card rv d2" href="https://shopee.vn" target="_blank">
+      <div class="dc-thumb">🖥️<div class="dc-badges"><span class="badge b-hot">HOT</span></div></div>
+      <div class="dc-body">
+        <div class="dc-cat">Hub & Cáp</div>
+        <div class="dc-name">Hub USB-C 7 in 1</div>
+        <div class="dc-desc">HDMI 4K, USB 3.0, SD card, sạc pass-through 100W.</div>
+        <div class="dc-foot">
+          <div class="dc-prices"><div class="dc-price">290.000đ</div><div class="dc-old">420.000đ</div></div>
+          <div class="dc-btn">Mua ↗</div>
+        </div>
+      </div>
+    </a>
+
+    <a class="deal-card rv d3" href="https://shopee.vn" target="_blank">
+      <div class="dc-thumb">🎮<div class="dc-badges"><span class="badge b-new">NEW</span></div></div>
+      <div class="dc-body">
+        <div class="dc-cat">Gaming</div>
+        <div class="dc-name">Tay cầm Bluetooth</div>
+        <div class="dc-desc">Kết nối đa nền tảng, pin 20h, cảm giác cầm tuyệt vời.</div>
+        <div class="dc-foot">
+          <div class="dc-prices"><div class="dc-price">450.000đ</div><div class="dc-old">600.000đ</div></div>
+          <div class="dc-btn">Mua ↗</div>
+        </div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<div class="section" style="padding-top:0">
+  <div class="section-head rv">
+    <div class="section-head-left">
+      <div class="sec-eyebrow">Danh mục</div>
+      <h2 class="sec-title">Tìm theo loại sản phẩm</h2>
+    </div>
+    <a class="sec-link" href="https://shopee.vn" target="_blank">Xem thêm →</a>
+  </div>
+  <div class="cat-grid">
+    <a class="cat-card rv" href="https://shopee.vn" target="_blank">
+      <div class="cat-icon">🎧</div>
+      <div class="cat-name">Tai nghe</div>
+      <div class="cat-sub">Có dây · Không dây · ANC</div>
+    </a>
+    <a class="cat-card rv d1" href="https://shopee.vn" target="_blank">
+      <div class="cat-icon">⌚</div>
+      <div class="cat-name">Smartwatch</div>
+      <div class="cat-sub">Thể thao · Thời trang</div>
+    </a>
+    <a class="cat-card rv d2" href="https://shopee.vn" target="_blank">
+      <div class="cat-icon">🔋</div>
+      <div class="cat-name">Sạc & Cáp</div>
+      <div class="cat-sub">GaN · Nhanh · Không dây</div>
+    </a>
+    <a class="cat-card rv d3" href="https://shopee.vn" target="_blank">
+      <div class="cat-icon">📱</div>
+      <div class="cat-name">Phụ kiện ĐT</div>
+      <div class="cat-sub">Case · Kính cường lực · Giá đỡ</div>
+    </a>
+  </div>
+</div>
+
+<!-- WHY YLA -->
+<div class="why-sect">
+  <div class="why-grid">
+    <div class="why-card rv">
+      <div class="why-ico-wrap"><span>✅</span></div>
+      <h3>Chính hãng 100%</h3>
+      <p>Tất cả sản phẩm có tem, xuất xứ rõ ràng, bảo hành đầy đủ từ nhà sản xuất.</p>
+    </div>
+    <div class="why-card rv d1">
+      <div class="why-ico-wrap"><span>🚚</span></div>
+      <h3>Giao toàn quốc</h3>
+      <p>Nhận đơn hôm nay, giao ngay ngày mai. Đóng gói kỹ, an toàn tuyệt đối.</p>
+    </div>
+    <div class="why-card rv d2">
+      <div class="why-ico-wrap"><span>💬</span></div>
+      <h3>Tư vấn miễn phí</h3>
+      <p>Không biết chọn gì? Nhắn tin — chúng tôi tư vấn tận tình, không ép mua.</p>
+    </div>
+    <div class="why-card rv d3">
+      <div class="why-ico-wrap"><span>💸</span></div>
+      <h3>Giá tốt nhất</h3>
+      <p>Tìm thấy rẻ hơn? Chúng tôi hoàn tiền phần chênh lệch, không cần giải thích.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SHOPEE CTA -->
+<div class="section">
+  <div class="shopee-cta rv">
+    <div>
+      <div class="cta-eyebrow">⚡ Mua ngay hôm nay</div>
+      <div class="cta-title">Đừng bỏ lỡ deal<br>trong ngày.</div>
+      <div class="cta-desc">Giá tốt · Freeship · Đổi trả 7 ngày · Thanh toán an toàn qua Shopee.</div>
+    </div>
+    <div class="cta-right">
+      <a class="cta-big-btn" href="https://shopee.vn" target="_blank">🛍️ Vào shop Shopee ngay</a>
+      <div class="cta-note">* Link dẫn đến gian hàng chính hãng trên Shopee</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="contact-sect">
+  <a class="contact-card rv" href="https://m.me/" target="_blank">
+    <div class="contact-icon">💬</div>
+    <div class="contact-info">
+      <strong>Nhắn tin tư vấn</strong>
+      <span>Phản hồi trong 5 phút · Tư vấn miễn phí · Không bán ép · 7 ngày/tuần</span>
+      <div class="contact-btn">Nhắn tin ngay →</div>
+    </div>
+  </a>
+  <a class="contact-card rv d1" href="https://shopee.vn" target="_blank">
+    <div class="contact-icon">🛍️</div>
+    <div class="contact-info">
+      <strong>Mua trên Shopee</strong>
+      <span>Freeship · Đổi trả 7 ngày · Thanh toán an toàn · Chính hãng 100%</span>
+      <div class="contact-btn">Vào Shopee Store →</div>
+    </div>
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-bottom">
+      <div class="footer-logo" style="display:flex;align-items:center;gap:10px;">
+        <div class="footer-logo-mark">YLA</div>
+        <div class="footer-logo-text">Điện Tử Nhanh</div>
+      </div>
+      <div class="footer-copy">© 2025 YLA – Điện Tử Nhanh. Tiếp thị liên kết Shopee chính hãng.</div>
+      <div class="footer-legal">
+        <a href="https://shopee.vn" target="_blank">Shopee Store</a>
+        <a href="https://tiktok.com" target="_blank">TikTok</a>
+        <a href="https://m.me/" target="_blank">Nhắn tin</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.rv').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
